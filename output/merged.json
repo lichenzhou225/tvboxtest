@@ -1,0 +1,56 @@
+{
+  "logs": [
+    {
+      "url": "https://www.饭太硬.net/tv",
+      "status": 200
+    },
+    {
+      "url": "https://www.饭太硬.net/tv",
+      "textPreview": "<!DOCTYPE html>\n<html lang=\"en\">\n <head>\n  <meta name=\"360-analysis-id\" content=\"1k1c1k1e39331c2v\" /"
+    },
+    {
+      "url": "https://www.饭太硬.net/tv",
+      "error": "JSON解析失败"
+    },
+    {
+      "url": "http://肥猫.live",
+      "status": 530
+    },
+    {
+      "url": "http://肥猫.live",
+      "textPreview": "error code: 1016"
+    },
+    {
+      "url": "http://肥猫.live",
+      "error": "JSON解析失败"
+    },
+    {
+      "url": "https://xn--v6q818bf34b.xn--0zwm56d",
+      "status": 530
+    },
+    {
+      "url": "https://xn--v6q818bf34b.xn--0zwm56d",
+      "textPreview": "error code: 1016"
+    },
+    {
+      "url": "https://xn--v6q818bf34b.xn--0zwm56d",
+      "error": "JSON解析失败"
+    },
+    {
+      "url": "https://9280.kstore.vip/newwex.json",
+      "status": 403
+    },
+    {
+      "url": "https://9280.kstore.vip/newwex.json",
+      "textPreview": "error code: 1000"
+    },
+    {
+      "url": "https://9280.kstore.vip/newwex.json",
+      "error": "JSON解析失败"
+    }
+  ],
+  "result": {
+    "sites": [],
+    "parses": []
+  }
+}
