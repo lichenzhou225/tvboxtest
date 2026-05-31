@@ -1,5 +1,8 @@
-
+```yaml id="jlwm2f"
 name: update-tvbox
+
+permissions:
+  contents: write
 
 on:
   workflow_dispatch:
@@ -29,7 +32,7 @@ jobs:
       - name: merge
         run: npm run start
 
-      - name: commit
+      - name: commit and push
 
         run: |
 
@@ -41,3 +44,4 @@ jobs:
           git commit -m "update"
 
           git push
+```
