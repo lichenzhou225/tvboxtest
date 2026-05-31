@@ -1,12 +1,24 @@
+
 import fs from "fs";
 import axios from "axios";
 
 const sources = [
-  "https://www.饭太硬.net/tv",
-  "http://肥猫.live",
-  "http://我不是.摸鱼儿.top",
-  "http://tvbox.王二小放牛娃.top",
-  "https://9280.kstore.vip/newwex.json"
+  {
+    name: "饭太硬",
+    url: "https://www.饭太硬.net/tv"
+  },
+  {
+    name: "肥猫",
+    url: "http://肥猫.live"
+  },
+  {
+    name: "摸鱼儿",
+    url: "http://我不是.摸鱼儿.top"
+  },
+  {
+    name: "王二小",
+    url: "https://9280.kstore.vip/newwex.json"
+  }
 ];
 
 const result = {
@@ -19,7 +31,7 @@ const result = {
 const siteSet = new Set();
 const parseSet = new Set();
 
-async function request(url) {
+async function fetchUrl(url) {
 
   try {
 
@@ -28,7 +40,7 @@ async function request(url) {
       maxRedirects: 5,
       headers: {
         "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+          "Mozilla/5.0",
         "Referer":
           "https://www.google.com/"
       }
@@ -44,11 +56,14 @@ async function request(url) {
   }
 }
 
+// JSON安全解析
 function safeJson(text) {
 
   try {
+
     return JSON.parse(text);
-  } catch (e) {}
+
+  } catch {}
 
   const start = text.indexOf("{");
   const end = text.lastIndexOf("}");
@@ -56,15 +71,18 @@ function safeJson(text) {
   if (start !== -1 && end !== -1) {
 
     try {
+
       return JSON.parse(
         text.slice(start, end + 1)
       );
-    } catch (e) {}
+
+    } catch {}
   }
 
   return null;
 }
 
+// Base64检测
 function isBase64(str) {
 
   if (!str || str.length < 30) {
@@ -86,6 +104,7 @@ function isBase64(str) {
   }
 }
 
+// 合并
 function merge(json) {
 
   if (!json) return;
@@ -138,11 +157,29 @@ function merge(json) {
   }
 }
 
-async function parseSource(url) {
+// 从HTML提取json链接
+function extractJsonUrls(html) {
 
-  console.log("处理:", url);
+  const urls = [];
 
-  let data = await request(url);
+  // json链接
+  const regex =
+    /https?:\/\/[^"' ]+\.(json|txt)/g;
+
+  const matches = html.match(regex);
+
+  if (matches) {
+    urls.push(...matches);
+  }
+
+  return [...new Set(urls)];
+}
+
+async function parseSource(item) {
+
+  console.log("处理:", item.name);
+
+  let data = await fetchUrl(item.url);
 
   if (!data) return;
 
@@ -156,7 +193,7 @@ async function parseSource(url) {
 
   let text = String(data);
 
-  // base64
+  // Base64
   if (isBase64(text)) {
 
     try {
@@ -179,48 +216,74 @@ async function parseSource(url) {
     return;
   }
 
-  // HTML中找json链接
-  const matches = text.match(
-    /https?:\/\/[^"' ]+\.json/g
+  // HTML提取
+  const subUrls =
+    extractJsonUrls(text);
+
+  console.log(
+    item.name,
+    "发现链接:",
+    subUrls.length
   );
 
-  if (matches) {
+  for (const subUrl of subUrls) {
 
-    for (const link of matches) {
+    try {
 
-      console.log("发现JSON:", link);
-
-      const subData = await request(link);
+      const subData =
+        await fetchUrl(subUrl);
 
       if (!subData) continue;
 
       let subJson = null;
 
-      if (typeof subData === "object") {
+      if (
+        typeof subData === "object"
+      ) {
 
         subJson = subData;
 
       } else {
 
-        subJson = safeJson(
-          String(subData)
-        );
+        let subText =
+          String(subData);
+
+        if (isBase64(subText)) {
+
+          try {
+
+            subText = Buffer.from(
+              subText,
+              "base64"
+            ).toString("utf8");
+
+          } catch {}
+        }
+
+        subJson = safeJson(subText);
       }
 
       if (subJson) {
+
+        console.log(
+          "成功:",
+          subUrl
+        );
+
         merge(subJson);
       }
-    }
+
+    } catch (e) {}
   }
 }
 
 async function run() {
 
-  for (const url of sources) {
+  for (const item of sources) {
 
     try {
 
-      await parseSource(url);
+      await parseSource(item);
 
     } catch (e) {
 
@@ -228,9 +291,10 @@ async function run() {
     }
   }
 
-  fs.mkdirSync("output", {
-    recursive: true
-  });
+  fs.mkdirSync(
+    "output",
+    { recursive: true }
+  );
 
   fs.writeFileSync(
     "output/merged.json",
@@ -239,10 +303,14 @@ async function run() {
   );
 
   console.log(
-    "完成:",
+    "sites:",
     result.sites.length
+  );
+
+  console.log(
+    "parses:",
+    result.parses.length
   );
 }
 
 run();
-
