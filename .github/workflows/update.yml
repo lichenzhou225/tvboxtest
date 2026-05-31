@@ -1,0 +1,43 @@
+
+name: update-tvbox
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 18 * * *"
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: install
+        run: npm install
+
+      - name: merge
+        run: npm run start
+
+      - name: commit
+
+        run: |
+
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+
+          git add .
+
+          git commit -m "update"
+
+          git push
