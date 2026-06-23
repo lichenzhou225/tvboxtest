@@ -75,12 +75,7 @@
       "api": "csp_YunDuo",
       "searchable": 1,
       "changeable": 1,
-      "filterable": 1,
-      "ext": {
-        "site": [
-          "https://yunduoyingshi.com"
-        ]
-      }
+      "filterable": 1
     },
     {
       "key": "CupFox",
@@ -89,10 +84,7 @@
       "api": "csp_CupFox",
       "searchable": 1,
       "changeable": 1,
-      "filterable": 1,
-      "ext": {
-        "site": "https://www.tjtcdl.com"
-      }
+      "filterable": 1
     },
     {
       "key": "BuBu",
@@ -101,12 +93,7 @@
       "api": "csp_BuBu",
       "searchable": 1,
       "changeable": 1,
-      "filterable": 1,
-      "ext": {
-        "site": [
-          "https://asd123sx23xdacsx.top"
-        ]
-      }
+      "filterable": 1
     },
     {
       "key": "景仪",
@@ -256,15 +243,6 @@
         "api": 2,
         "ua": "okhttp/3.10.0"
       }
-    },
-    {
-      "key": "思追",
-      "name": "💭┃思追┃APP",
-      "type": 3,
-      "api": "csp_AppGet",
-      "searchable": 1,
-      "changeable": 1,
-      "ext": "ASKjgwRNiR0Cm6kFKdNzI8WI/ic4PmwK3odgt8MhFQvbl3mhDbShb5bbTFTo7paa8t0h/eK0IaCgWFxjyrk9E3XEhEgnQl4lSED6Aai0eVzXMurDiNGdHxvF3VEUI6e4G/o4FILNazhcr7ECOwLDz/VhNAd/7G/VxdrrL+Dz0oAUiUsfLmy4DiP+aQrY1INXLXmkDb2xN5Ev3pZr7xs6XtM="
     },
     {
       "key": "Libvio",
@@ -602,6 +580,15 @@
       "searchable": 1,
       "quickSearch": 1,
       "genre": "shortdrama",
+      "filterable": 1
+    },
+    {
+      "key": "FanShu",
+      "name": "🍠┃番薯┃动漫",
+      "type": 3,
+      "api": "csp_FanShu",
+      "searchable": 1,
+      "quickSearch": 1,
       "filterable": 1
     },
     {
