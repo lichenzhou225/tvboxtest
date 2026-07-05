@@ -115,6 +115,16 @@
       "filterable": 1
     },
     {
+      "key": "FengYe",
+      "name": "🍁┆枫叶┆4K",
+      "type": 3,
+      "api": "csp_CupFox",
+      "searchable": 1,
+      "changeable": 1,
+      "filterable": 1,
+      "ext": "ASrqK2y8hBjF6nWBT4VA6nl6pMHBuUkTFU8G1oArN4pFIRBIK3Koep4Mpa+rHr3EEKPvWTsPKevEKAGNJkBG3jYkvcbsm4uMR4SEGFXEVUK5k5GC1r3GrXXjDgc1ezNOEnVyK6ZdKI+xk/a/S3HSnknsxpSteN1SyaZ76LlkHDg8oTcmvsm6VWIJmoLG+EXXFO47gkwl6Z2cGWF6122DYXd9rqv5d1nPkPmMRFOjZmeIQwGet75HMuUQH2SD6tMhrHwqOVYxsZhaEJyp6C5P7lQgMd2fNfTUjdB8IXkeVnT+wuAKOiT09go+UHAmjghG58OMf/v/2ou2/Ojv5RTxZkUiiLZ5tUfJMSW87nNKi1Ak4w3wJ2h0OBR83irMrQjD68TCU0pG+ecPOjclNg7OFlbYxsLd0PPUBDQOAxFhq9+IpEgRp04Fi5Eb9B2exKN8CXuEoyf6ISv5l7FkIamTpm0="
+    },
+    {
       "key": "BuBu",
       "name": "🧸┆布布┆4K",
       "type": 3,
@@ -960,7 +970,7 @@
     },
     {
       "key": "Doubana",
-      "name": "🐮【更新日期:20260627】🐮",
+      "name": "🐮【更新日期:20260705】🐮",
       "type": 3,
       "api": "csp_NewDouBanGuard",
       "searchable": 0,
@@ -1199,9 +1209,19 @@
       "changeable": 1
     },
     {
+      "key": "ManJuHongGuo",
+      "name": "🍉漫短┃小红🍉",
+      "type": 3,
+      "类型": "短剧",
+      "api": "csp_ManJuHongGuoGuard",
+      "searchable": 1,
+      "changeable": 0
+    },
+    {
       "key": "ManJuHuoLong",
       "name": "🍉漫剧┃小龙🍉",
       "type": 3,
+      "类型": "短剧",
       "api": "csp_ManJuHuoLongGuard",
       "searchable": 1,
       "changeable": 0
@@ -1210,6 +1230,7 @@
       "key": "ManJuQiMao",
       "name": "🍉漫剧┃小猫🍉",
       "type": 3,
+      "类型": "短剧",
       "api": "csp_ManJuQiMaoGuard",
       "searchable": 1,
       "changeable": 0
@@ -1218,6 +1239,7 @@
       "key": "DuanJuHaoKan",
       "name": "🍉短剧┃好看🍉",
       "type": 3,
+      "类型": "短剧",
       "api": "csp_DuanJuHaoKanGuard",
       "searchable": 1,
       "changeable": 1
@@ -1226,6 +1248,7 @@
       "key": "DuanJuQiMiao",
       "name": "🍉短剧┃小猫🍉",
       "type": 3,
+      "类型": "短剧",
       "api": "csp_DuanJuQiMiaoGuard",
       "searchable": 1,
       "changeable": 1
@@ -1234,6 +1257,7 @@
       "key": "DuanJuHeMa",
       "name": "🍉短剧┃小马🍉",
       "type": 3,
+      "类型": "短剧",
       "api": "csp_DuanJuHeMaGuard",
       "searchable": 1,
       "changeable": 1
@@ -1242,6 +1266,7 @@
       "key": "DuanJuXingYa",
       "name": "🍉短剧┃星星🍉",
       "type": 3,
+      "类型": "短剧",
       "api": "csp_DuanJuXingYaGuard",
       "searchable": 1,
       "changeable": 1
@@ -1250,6 +1275,7 @@
       "key": "DuanJuWeiGuan",
       "name": "🍉短剧┃小薇🍉",
       "type": 3,
+      "类型": "短剧",
       "api": "csp_DuanJuWeiGuanGuard",
       "searchable": 1,
       "changeable": 1
