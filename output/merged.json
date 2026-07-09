@@ -4,10 +4,16 @@
       "key": "Douban",
       "name": "🌕️┆片单┆精选",
       "type": 3,
-      "api": "csp_Douban",
+      "api": "csp_PianDan",
       "indexs": 1,
       "searchable": 0,
-      "filterable": 1
+      "filterable": 1,
+      "ext": {
+        "home": {
+          "douban": "https://6800.kstore.vip/douban.json",
+          "tmdb": "https://6800.kstore.vip/tmdb.json"
+        }
+      }
     },
     {
       "key": "YGP",
@@ -880,6 +886,28 @@
       "changeable": 1
     },
     {
+      "key": "TingShijie",
+      "name": "🌍┆听界┆有声",
+      "type": 3,
+      "api": "csp_TingShijie",
+      "searchable": 1,
+      "indexs": 0,
+      "style": {
+        "type": "list"
+      }
+    },
+    {
+      "key": "TingYou",
+      "name": "🎧┆听友┆有声",
+      "type": 3,
+      "api": "csp_TingYou",
+      "searchable": 1,
+      "indexs": 0,
+      "style": {
+        "type": "list"
+      }
+    },
+    {
       "key": "TingBook",
       "name": "📻┆六月┆有声",
       "type": 3,
@@ -900,17 +928,6 @@
       "filterable": 1,
       "indexs": 0,
       "ext": "https://m.ting15.com",
-      "style": {
-        "type": "list"
-      }
-    },
-    {
-      "key": "TingShijie",
-      "name": "🌍┆听界┆有声",
-      "type": 3,
-      "api": "csp_TingShijie",
-      "searchable": 1,
-      "indexs": 0,
       "style": {
         "type": "list"
       }
